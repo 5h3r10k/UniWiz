@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Interface</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <div class="chat-container">
+        <header class="chat-header">
+            <h1>UniWiz</h1>
+        </header>
+        <div class="chat-body">
+            <!-- Chat messages will go here -->
+        </div>
+        <div class="chat-input">
+            <input type="text" placeholder="Message Chatbot…" />
+            <button>Send</button>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('button').click(function(e) {
+                e.preventDefault(); // Prevent the default form submit action
+        
+                var questionText = $('input[type="text"]').val();
+                if (questionText.trim() === '') {
+                    return; // Don't send if the question is empty
+                }
+        
+                // Append the user's question to the chat-body
+                $('.chat-body').append('<div class="user-message">' + questionText + '</div>');
+        
+                // Send the question to the server using AJAX
+                $.ajax({
+                    type: 'POST',
+                    url: '/ask',
+                    data: {question: questionText},
+                    dataType: 'json', // Expecting a JSON response
+                    success: function(response) {
+                    // Make sure to check if the response has the 'answer' key
+                    if (response && response.answer) {
+                        $('.chat-body').append('<div class="chatbot-message">' + response.answer + '</div>');
+                    } else {
+                    // Handle the case where 'answer' is not in the response
+                        $('.chat-body').append('<div class="chatbot-message">I did not understand that.</div>');
+                    }
+                    $('input[type="text"]').val('');
+                    $('.chat-body').scrollTop($('.chat-body')[0].scrollHeight);
+                },
+                error: function(error) {
+                    console.log(error);
+                    // Handle the case where there is an AJAX error
+                    $('.chat-body').append('<div class="chatbot-message">Error in getting response.</div>');
+                }
+            });
+
+            });
+        });
+    </script>       
+</body>
+</html>
