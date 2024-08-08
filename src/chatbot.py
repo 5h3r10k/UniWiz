@@ -15,9 +15,3 @@ def ask():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-@app.route('/ask', methods=['POST'])
-def ask():
-    question_text = request.form['question']
-    response = answer(question_text)
-    return jsonify(answer=response)
