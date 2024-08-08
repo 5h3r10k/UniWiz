@@ -1,4 +1,5 @@
-key.env
+# Scraped files
+scraped/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -122,6 +123,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+key.env
 .env
 .venv
 env/
