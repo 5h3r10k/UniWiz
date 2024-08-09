@@ -44,3 +44,9 @@ http://localhost:5000/
 * HTML/CSS: For frontend design and styling.
 * Requests: For making HTTP requests.
 * Python: Programming language used for the project.
+
+
+## Made with ❤️ by Team Uniwiz
+
+- [Soham](https://github.com/soham-phargade) - Flask frontend and integration with backend
+- [Ishaan](https://github.com/5h3r10k) - Backend data collection and RAG implementation
