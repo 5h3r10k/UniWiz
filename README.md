@@ -25,7 +25,7 @@ pip3 install -r requirements.txt
 ## Usage
 1. Start the flask server
 ```bash
-python src/chatbot.py
+python3 src/chatbot.py
 ```
 2. Run localhost 5000
 ```
