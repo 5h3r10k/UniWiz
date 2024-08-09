@@ -7,15 +7,20 @@ The project includes two key components: a web scraper and a text chunker-embedd
 UniWiz is a web app for Computer Science advising, built using Flask for the backend. It represents our chosen use case, leveraging processed data and AI embeddings to deliver personalized student guidance.
 
 ## Installation
+
+A few notes before starting installation: 
+- This project requires an OpenAI API key which can be obtained from the OpenAI website.
+- This project uses Python 3, so please ensure you have the correct version installed. Python 2 is not supported.
+
 1. Clone the repository:
 ```bash
 git clone https://github.com/5h3r10k/ScarletWiz.git
 ```
-2. Install dependencies
+1. Install dependencies
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
-3. Create 'key.env' and add your OpenAI API key
+1. Create 'key.env' and add your OpenAI API key
 
 ## Usage
 1. Start the flask server
@@ -31,7 +36,7 @@ http://localhost:5000/
 [![UniWiz YouTube Demo](https://i.ibb.co/Gsx8K0d/image.png)](https://youtu.be/oEq7eAFU0JA)
 
 ## Built with
-* OpenAI: API for generating text embeddings.
+* OpenAI: API for generating text embeddings and implementing RAG (Retrieval-Augmented Generation).
 * BeautifulSoup: Library for web scraping and HTML parsing.
 * Pandas: Data manipulation and analysis.
 * tiktoken: Tokenization library for processing text.
